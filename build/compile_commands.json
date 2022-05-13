@@ -1,11 +1,6 @@
 [
 {
   "directory": "/Users/adong/Desktop/malloc_tutorial/build",
-  "command": "/usr/bin/clang   -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk -std=gnu99 -o CMakeFiles/malloc_tutorial.dir/main.c.o -c /Users/adong/Desktop/malloc_tutorial/main.c",
-  "file": "/Users/adong/Desktop/malloc_tutorial/main.c"
-},
-{
-  "directory": "/Users/adong/Desktop/malloc_tutorial/build",
   "command": "/usr/bin/clang   -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk -std=gnu99 -o CMakeFiles/malloc_tutorial.dir/my_malloc.c.o -c /Users/adong/Desktop/malloc_tutorial/my_malloc.c",
   "file": "/Users/adong/Desktop/malloc_tutorial/my_malloc.c"
 }

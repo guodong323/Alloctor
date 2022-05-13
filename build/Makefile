@@ -129,30 +129,6 @@ malloc_tutorial/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/malloc_tutorial.dir/build.make CMakeFiles/malloc_tutorial.dir/build
 .PHONY : malloc_tutorial/fast
 
-main.o: main.c.o
-.PHONY : main.o
-
-# target to build an object file
-main.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/malloc_tutorial.dir/build.make CMakeFiles/malloc_tutorial.dir/main.c.o
-.PHONY : main.c.o
-
-main.i: main.c.i
-.PHONY : main.i
-
-# target to preprocess a source file
-main.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/malloc_tutorial.dir/build.make CMakeFiles/malloc_tutorial.dir/main.c.i
-.PHONY : main.c.i
-
-main.s: main.c.s
-.PHONY : main.s
-
-# target to generate assembly for a file
-main.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/malloc_tutorial.dir/build.make CMakeFiles/malloc_tutorial.dir/main.c.s
-.PHONY : main.c.s
-
 my_malloc.o: my_malloc.c.o
 .PHONY : my_malloc.o
 
@@ -186,9 +162,6 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... malloc_tutorial"
-	@echo "... main.o"
-	@echo "... main.i"
-	@echo "... main.s"
 	@echo "... my_malloc.o"
 	@echo "... my_malloc.i"
 	@echo "... my_malloc.s"

@@ -8,7 +8,6 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/Users/adong/Desktop/malloc_tutorial/main.c" "CMakeFiles/malloc_tutorial.dir/main.c.o" "gcc" "CMakeFiles/malloc_tutorial.dir/main.c.o.d"
   "/Users/adong/Desktop/malloc_tutorial/my_malloc.c" "CMakeFiles/malloc_tutorial.dir/my_malloc.c.o" "gcc" "CMakeFiles/malloc_tutorial.dir/my_malloc.c.o.d"
   )
 

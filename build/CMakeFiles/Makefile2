@@ -81,12 +81,12 @@ clean: CMakeFiles/malloc_tutorial.dir/clean
 CMakeFiles/malloc_tutorial.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/malloc_tutorial.dir/build.make CMakeFiles/malloc_tutorial.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/malloc_tutorial.dir/build.make CMakeFiles/malloc_tutorial.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/adong/Desktop/malloc_tutorial/build/CMakeFiles --progress-num=1,2,3 "Built target malloc_tutorial"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/adong/Desktop/malloc_tutorial/build/CMakeFiles --progress-num=1,2 "Built target malloc_tutorial"
 .PHONY : CMakeFiles/malloc_tutorial.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/malloc_tutorial.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/adong/Desktop/malloc_tutorial/build/CMakeFiles 3
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/adong/Desktop/malloc_tutorial/build/CMakeFiles 2
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/malloc_tutorial.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/adong/Desktop/malloc_tutorial/build/CMakeFiles 0
 .PHONY : CMakeFiles/malloc_tutorial.dir/rule
