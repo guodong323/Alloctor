@@ -1,3 +1,3 @@
-/Users/adong/Desktop/malloc_tutorial/build/CMakeFiles/malloc_tutorial.dir
-/Users/adong/Desktop/malloc_tutorial/build/CMakeFiles/edit_cache.dir
-/Users/adong/Desktop/malloc_tutorial/build/CMakeFiles/rebuild_cache.dir
+/Users/adong/Desktop/my_malloc/build/CMakeFiles/my_malloc.dir
+/Users/adong/Desktop/my_malloc/build/CMakeFiles/edit_cache.dir
+/Users/adong/Desktop/my_malloc/build/CMakeFiles/rebuild_cache.dir

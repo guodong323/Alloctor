@@ -55,7 +55,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/Users/adong/Desktop/malloc_tutorial/build"
+			"value" : "/Users/adong/Desktop/my_malloc/build"
 		},
 		{
 			"name" : "CMAKE_CACHE_MAJOR_VERSION",
@@ -455,7 +455,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/Users/adong/Desktop/malloc_tutorial"
+			"value" : "/Users/adong/Desktop/my_malloc"
 		},
 		{
 			"name" : "CMAKE_INSTALL_NAME_TOOL",
@@ -739,7 +739,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "malloc_tutorial"
+			"value" : "my_malloc"
 		},
 		{
 			"name" : "CMAKE_RANLIB",
@@ -1022,7 +1022,7 @@
 			"value" : "FALSE"
 		},
 		{
-			"name" : "malloc_tutorial_BINARY_DIR",
+			"name" : "my_malloc_BINARY_DIR",
 			"properties" : 
 			[
 				{
@@ -1031,10 +1031,10 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/Users/adong/Desktop/malloc_tutorial/build"
+			"value" : "/Users/adong/Desktop/my_malloc/build"
 		},
 		{
-			"name" : "malloc_tutorial_IS_TOP_LEVEL",
+			"name" : "my_malloc_IS_TOP_LEVEL",
 			"properties" : 
 			[
 				{
@@ -1046,7 +1046,7 @@
 			"value" : "ON"
 		},
 		{
-			"name" : "malloc_tutorial_SOURCE_DIR",
+			"name" : "my_malloc_SOURCE_DIR",
 			"properties" : 
 			[
 				{
@@ -1055,7 +1055,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/Users/adong/Desktop/malloc_tutorial"
+			"value" : "/Users/adong/Desktop/my_malloc"
 		}
 	],
 	"kind" : "cache",

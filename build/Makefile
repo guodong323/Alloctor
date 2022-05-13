@@ -57,10 +57,10 @@ RM = /opt/homebrew/Cellar/cmake/3.22.1/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/adong/Desktop/malloc_tutorial
+CMAKE_SOURCE_DIR = /Users/adong/Desktop/my_malloc
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/adong/Desktop/malloc_tutorial/build
+CMAKE_BINARY_DIR = /Users/adong/Desktop/my_malloc/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -87,9 +87,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/adong/Desktop/malloc_tutorial/build/CMakeFiles /Users/adong/Desktop/malloc_tutorial/build//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/adong/Desktop/my_malloc/build/CMakeFiles /Users/adong/Desktop/my_malloc/build//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/adong/Desktop/malloc_tutorial/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/adong/Desktop/my_malloc/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -117,24 +117,30 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named malloc_tutorial
+# Target rules for targets named my_malloc
 
 # Build rule for target.
-malloc_tutorial: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 malloc_tutorial
-.PHONY : malloc_tutorial
+my_malloc: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 my_malloc
+.PHONY : my_malloc
 
 # fast build rule for target.
+<<<<<<< HEAD
+my_malloc/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_malloc.dir/build.make CMakeFiles/my_malloc.dir/build
+.PHONY : my_malloc/fast
+=======
 malloc_tutorial/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/malloc_tutorial.dir/build.make CMakeFiles/malloc_tutorial.dir/build
 .PHONY : malloc_tutorial/fast
+>>>>>>> 6582f4d8ef960cadc9ff78d9061b34e416821a17
 
 my_malloc.o: my_malloc.c.o
 .PHONY : my_malloc.o
 
 # target to build an object file
 my_malloc.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/malloc_tutorial.dir/build.make CMakeFiles/malloc_tutorial.dir/my_malloc.c.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_malloc.dir/build.make CMakeFiles/my_malloc.dir/my_malloc.c.o
 .PHONY : my_malloc.c.o
 
 my_malloc.i: my_malloc.c.i
@@ -142,7 +148,7 @@ my_malloc.i: my_malloc.c.i
 
 # target to preprocess a source file
 my_malloc.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/malloc_tutorial.dir/build.make CMakeFiles/malloc_tutorial.dir/my_malloc.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_malloc.dir/build.make CMakeFiles/my_malloc.dir/my_malloc.c.i
 .PHONY : my_malloc.c.i
 
 my_malloc.s: my_malloc.c.s
@@ -150,7 +156,7 @@ my_malloc.s: my_malloc.c.s
 
 # target to generate assembly for a file
 my_malloc.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/malloc_tutorial.dir/build.make CMakeFiles/malloc_tutorial.dir/my_malloc.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/my_malloc.dir/build.make CMakeFiles/my_malloc.dir/my_malloc.c.s
 .PHONY : my_malloc.c.s
 
 # Help Target
@@ -161,7 +167,11 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+<<<<<<< HEAD
+	@echo "... my_malloc"
+=======
 	@echo "... malloc_tutorial"
+>>>>>>> 6582f4d8ef960cadc9ff78d9061b34e416821a17
 	@echo "... my_malloc.o"
 	@echo "... my_malloc.i"
 	@echo "... my_malloc.s"

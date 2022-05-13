@@ -1,133 +1,164 @@
-#include "my_malloc.h"
 
-#include <limits.h>
-#include <pthread.h>
-#include <stdbool.h>
 #include <stdio.h>
+#include <unistd.h>
 #include <stdlib.h>
+#include <assert.h>
+#include "my_malloc.h"
+#include <stdbool.h>
+#include "pthread.h"
+#define block_size sizeof(block)
 
-__thread Node *initialTLS = NULL;  //每个线程的头
-static Node *initialFree = NULL;   //总共的头
+pthread_mutex_t lock =  PTHREAD_MUTEX_INITIALIZER;
 
-pthread_mutex_t sbrk_locker = PTHREAD_MUTEX_INITIALIZER;
-pthread_mutex_t locker = PTHREAD_MUTEX_INITIALIZER;
-
-// 分配内存空间
-void* mymalloc(size_t size) {
-  pthread_mutex_lock(&sbrk_locker);
-  Node * ls = (Node *)sbrk(0);
-  size_t realSize = size + sizeof(Node);
-  if (sbrk(realSize) == (void *)-1) {  
-    pthread_mutex_unlock(&sbrk_locker);
-    return NULL;
-  }
-  pthread_mutex_unlock(&sbrk_locker);
-  ls->size = size;
-  ls->available = false;
-  ls->next = NULL;
-  return ls;
+size_t is_8(size_t size){
+  if(size % 8 == 0) return size;
+  return ((size>>3)+1)<<3;
 }
 
-// 空间太大了就拆开
-void split(size_t size, Node * node) {
-  size_t tmpSize = node->size;
-  node->size = (tmpSize - size - sizeof(Node));
-  Node * splitted = (Node *)((char *)node + node->size + sizeof(Node));
-  splitted->size = size;
-  splitted->next = NULL;
+__thread void *first_block_nolock = NULL;
+
+block *bf_block_nolock(size_t size){
+    block *current  = first_block_nolock;
+    block *bf_block = NULL;
+    while(current != NULL) {
+        // 符合要求的块
+        if(current->size >= size) {
+        if(bf_block == NULL || current->size < bf_block->size){
+            bf_block = current;
+            // 找到大小正好相等的就是最匹配的
+            if(current->size == size) {
+                break;
+            }
+        }
+        }
+        current = current->next;
+    }
+    // 找不到就没有
+    if(bf_block == NULL) return NULL;
+    // 找到的block比要分配的空间还大，就分割
+    if(bf_block->size > 8 + size + block_size) {
+        seperate_block(bf_block,size);
+    }
+    // 如果是头节点
+    if(bf_block == first_block_nolock){
+        first_block_nolock = bf_block->next;
+        if(bf_block->next != NULL){
+            bf_block->next->prev = NULL;
+        }
+    } else{
+        bf_block->prev->next = bf_block->next;
+        if(bf_block->next != NULL){
+            bf_block->next->prev = bf_block->prev;
+        }
+    }
+    return bf_block;
 }
 
-// 合并起来
-void mergeNode(Node * cur, Node * ls) {
-  Node * next = cur->next;
-  if (initialTLS == next) {
-    initialTLS = ls;
-  }
-  ls->next = next->next;
-  cur->next = ls;
-  ls->size = ls->size + next->size + sizeof(Node);
-  ls->available = true;
-  next->available = false;
-  next->next = NULL;
+// 新申请空间
+block *add_new_block_nolock(size_t size){
+  pthread_mutex_lock(&lock);
+  block *new_block = sbrk(size+block_size);          
+  pthread_mutex_unlock(&lock);
+  new_block->size = size;
+  new_block->prev = NULL;
+  new_block->next = NULL;
+  return new_block;
 }
 
-//从freelist中删除
-void removeNode(Node *node) {
-  Node * toDelete = node->next;
-  toDelete->available = false;
-  node->next = toDelete->next;
-
-  if (initialTLS == toDelete) {
-    initialTLS = toDelete->next;
-  }
-  toDelete->next = NULL;
+// 分割空间
+void seperate_block(block *current,size_t size){
+    block *new_block;
+    new_block = (block*)((size_t)current+ size + block_size);
+    // 分割出要用的
+    new_block->size = current->size - size - block_size;
+    new_block->next = current->next;
+    new_block->prev = current;
+    current->size = size;
+    current->next = new_block;
+    // 加到free list中去
+    if(new_block->next != NULL){
+        new_block->next->prev = new_block;
+    }
 }
 
-void * ts_malloc_nolock(size_t size) {
-  Node * tmp = initialTLS;
-  int cnt = 0;
-  int fit = 0;
-  size_t minSize = INT_MAX;
-  while (tmp != NULL && tmp->next != NULL) {
-    if (tmp->next->size == size) {
-      Node * toDelete = tmp->next;
-      removeNode(tmp);
-      return (char *)toDelete + sizeof(Node);
+block *merge_block(block *current){
+    if(current->next != NULL && ((size_t)current + current->size + block_size == (size_t)(current->next))) {
+        current->size += current->next->size + block_size;
+        current->next = current->next->next;
+        if(current->next){
+            current->next->prev = current;
+        }
     }
-    else if (tmp->next->size > size && minSize > tmp->next->size) {
-      minSize = tmp->next->size;
-      fit = cnt;
-    }
-    cnt++;
-    tmp = tmp->next;
-  }
-
-  if (minSize == INT_MAX) {
-    return (char *)mymalloc(size) + sizeof(Node);
-  }
-
-  Node * tmp2 = initialTLS;
-  for (int i = 0; i < fit; i++) {
-    tmp2 = tmp2->next;
-  }
-  Node * ans = tmp2;
-  if (tmp2->next->size > 1 * (size + sizeof(Node))) {
-    split(size, tmp2->next);
-    ans = (Node *)((char *)tmp2->next + tmp2->next->size + sizeof(Node));
-  }
-  else {
-    ans = tmp2->next;
-    removeNode(tmp2);
-  }
-  return (char *)ans + sizeof(Node);
+    return current;
 }
 
-//free
-void ts_free_nolock(void * ptr) {
-  Node * ls = (Node *)((char *)ptr - sizeof(Node));
-  if (ls->available == true) {
-    return;
-  }
+// 判断是否合法
+block *get_block(void *p){
+    size_t temp = (size_t)p - block_size;
+    return (block *)temp;
+}
 
-  Node * next = (Node *)((char *)ls + ls->size + sizeof(Node));
+void *ts_malloc_nolock(size_t size){
+    if(size <= 0) return NULL;
+    if(first_block_nolock == NULL) {
+        pthread_mutex_lock(&lock);
+        first_block_nolock = sbrk(block_size);
+        pthread_mutex_unlock(&lock);
+    }
+    block *target = NULL;
+    size_t s = is_8(size);
+    if(first_block_nolock != NULL) {
+        target = bf_block_nolock(s);
+        if(target == NULL){
+            target = add_new_block_nolock(s);
+            if(target == NULL) return NULL;
+        }
+    } else{
+        target = add_new_block_nolock(s);
+        if(target == NULL) return NULL;
+    }
+    return (void *)((size_t)target+block_size);
+}
 
-  Node * cur = initialTLS;
-  if (next < (Node *)sbrk(0) && next->available == true && next != initialTLS) {
-    while (cur != NULL && cur->next != NULL && cur->next != next) {
-      cur = cur->next;
+void ts_free_nolock(void *p){
+    if(p==NULL) return;
+    block *current;
+    block *free_block;
+    free_block = get_block(p);
+    current = first_block_nolock;
+    if(current == NULL){
+        first_block_nolock = free_block;
+        free_block->next = NULL;
+        free_block->prev = NULL;
+        return;
     }
-    if (ls != NULL && cur != NULL && cur->next != NULL) {
-      mergeNode(cur, ls);
+    while(current != NULL && current->next != NULL && (size_t)free_block > (size_t)current){
+        current = current->next;
     }
-    else {
-      ls->available = true;
-      ls->next = initialTLS;
-      initialTLS = ls;
+
+    if((size_t)free_block < (size_t)current) {
+        if(current == first_block_nolock) {
+            first_block_nolock = free_block;
+            free_block->prev = NULL;
+            free_block->next = current;
+            if(current!=NULL) {
+            current->prev = free_block;
+            }
+        } else {
+            free_block->next =  current;
+            free_block->prev = current->prev;
+            current->prev->next = free_block;
+            current->prev = free_block;
+        }
+    } else if((size_t)free_block>(size_t)current){
+        current->next = free_block;
+        free_block->prev = current;
+        free_block->next = NULL;
     }
-  }
-  else {
-    ls->available = true;
-    ls->next = initialTLS;
-    initialTLS = ls;
-  }
+
+    if(free_block->prev && ((size_t)free_block->prev+block_size+(free_block->prev->size) == (size_t)free_block)){
+        free_block = merge_block(free_block->prev);
+    }
+    if(free_block->next && ((size_t)free_block+block_size+free_block->size == (size_t)free_block->next)) free_block = merge_block(free_block);
+
 }

@@ -42,5 +42,5 @@ set(CMAKE_MAKEFILE_PRODUCTS
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
-  "CMakeFiles/malloc_tutorial.dir/DependInfo.cmake"
+  "CMakeFiles/my_malloc.dir/DependInfo.cmake"
   )

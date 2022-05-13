@@ -1,0 +1,5 @@
+<<<<<<< HEAD:build/CMakeFiles/my_malloc.dir/link.txt
+/usr/bin/clang -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/my_malloc.dir/my_malloc.c.o -o my_malloc 
+=======
+/usr/bin/clang -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.1.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/malloc_tutorial.dir/my_malloc.c.o -o malloc_tutorial 
+>>>>>>> 6582f4d8ef960cadc9ff78d9061b34e416821a17:build/CMakeFiles/malloc_tutorial.dir/link.txt

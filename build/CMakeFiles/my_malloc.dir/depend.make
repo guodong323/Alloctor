@@ -1,2 +1,2 @@
-# Empty dependencies file for malloc_tutorial.
+# Empty dependencies file for my_malloc.
 # This may be replaced when dependencies are built.
