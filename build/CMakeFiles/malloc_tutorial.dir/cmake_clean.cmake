@@ -1,6 +1,4 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/malloc_tutorial.dir/main.c.o"
-  "CMakeFiles/malloc_tutorial.dir/main.c.o.d"
   "CMakeFiles/malloc_tutorial.dir/my_malloc.c.o"
   "CMakeFiles/malloc_tutorial.dir/my_malloc.c.o.d"
   "malloc_tutorial"

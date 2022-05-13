@@ -1,21 +1,17 @@
-#ifndef MALLOC_TUTORIAL_MY_MALLOC_H
-#define MALLOC_TUTORIAL_MY_MALLOC_H
+#include <stdbool.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
 
-#include <stddef.h>
-#include <pthread.h>
+struct metadata {
+  size_t size;
+  bool available; 
+  struct metadata *next; 
+} typedef Node;
 
-typedef struct block_meta {
-    struct block_meta *next;
-    struct block_meta *prev;
-    size_t size;
-} Node;
-
-
-void malloc(size_t);
-void calloc(size_t,size_t);
-void realloc(void *,size_t);
-void free(void *);
-
-
-
-#endif //MALLOC_TUTORIAL_MY_MALLOC_H
+void * mymalooc(size_t size);
+void split(size_t size, Node * node);
+void mergeNode(Node * next, Node * ls);
+void removeNode(Node * node);
+void * ts_malloc_nolock(size_t size);
+void ts_free_nolock(void * ptr);
