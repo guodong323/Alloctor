@@ -1,11 +1,10 @@
-
 #include <stdio.h>
 #include <unistd.h>
 #include <stdlib.h>
 #include <assert.h>
 #include "my_malloc.h"
 #include <stdbool.h>
-#include "pthread.h"
+#include <pthread.h>
 #define block_size sizeof(block)
 
 pthread_mutex_t lock =  PTHREAD_MUTEX_INITIALIZER;

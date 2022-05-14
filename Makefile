@@ -5,7 +5,7 @@ DEPS=my_malloc.h
 all: lib
 
 lib: my_malloc.o
-	$(CC) $(CFLAGS) -shared -o libmymalloc.so my_malloc.o -lpthread
+	$(CC) $(CFLAGS) -shared -o libmymalloc.so my_malloc.o
 
 %.o: %.c my_malloc.h
 	$(CC) $(CFLAGS) -c -o $@ $< 

@@ -3,6 +3,8 @@
     "files.associations": {
         "*.py": "python",
         "stdio.h": "c",
-        "stdbool.h": "c"
+        "stdbool.h": "c",
+        "my_malloc.h": "c",
+        "pthread_barrier_h.h": "c"
     }
 }

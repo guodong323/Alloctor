@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include <pthread.h>
 #include <unistd.h>
+#include "pthread_barrier_h.h"
 #include "my_malloc.h"
 
 #ifdef LOCK_VERSION
