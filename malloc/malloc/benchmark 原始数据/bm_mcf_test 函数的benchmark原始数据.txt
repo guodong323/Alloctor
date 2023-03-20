@@ -1,0 +1,176 @@
+init
+The number of inputs is very large. test will be repeated at least 160 times.
+2022-06-05T23:11:15+08:00
+Running /Users/yamayama/Library/Developer/Xcode/DerivedData/lib_cmz_test-gxzuxcfzkvahgmafbuvocvuvgxhc/Build/Products/Debug/lib_cmz_test
+Run on (4 X 1800 MHz CPU s)
+CPU Caches:
+  L1 Data 32 KiB
+  L1 Instruction 32 KiB
+  L2 Unified 256 KiB (x2)
+  L3 Unified 3072 KiB
+Load Average: 2.08, 1.59, 1.46
+------------------------------------------------------------------------------------------
+Benchmark                                                Time             CPU   Iterations
+------------------------------------------------------------------------------------------
+test/ type:0/ cnt:100/ size:8/ seed:251             335204 ns       309914 ns         2112
+test/ type:1/ cnt:100/ size:8/ seed:251              37724 ns        36539 ns        24783
+test/ type:0/ cnt:100/ size:16/ seed:95             301161 ns       290454 ns         3348
+test/ type:1/ cnt:100/ size:16/ seed:95              36854 ns        35935 ns        24900
+test/ type:0/ cnt:100/ size:32/ seed:32             384314 ns       369623 ns         2515
+test/ type:1/ cnt:100/ size:32/ seed:32              39730 ns        39647 ns        19090
+test/ type:0/ cnt:100/ size:64/ seed:281            521173 ns       519765 ns         1897
+test/ type:1/ cnt:100/ size:64/ seed:281             57873 ns        57797 ns        14568
+test/ type:0/ cnt:100/ size:128/ seed:1             540467 ns       538818 ns         1000
+test/ type:1/ cnt:100/ size:128/ seed:1              95940 ns        95774 ns        10000
+test/ type:0/ cnt:100/ size:256/ seed:90           1042137 ns      1038461 ns         1000
+test/ type:1/ cnt:100/ size:256/ seed:90            285575 ns       278690 ns        11972
+test/ type:0/ cnt:100/ size:512/ seed:257          1634533 ns      1629906 ns         1000
+test/ type:1/ cnt:100/ size:512/ seed:257           314169 ns       313507 ns         8784
+test/ type:0/ cnt:100/ size:1024/ seed:38          4147677 ns      4141479 ns         1265
+test/ type:1/ cnt:100/ size:1024/ seed:38           554104 ns       552938 ns         3477
+test/ type:0/ cnt:1000/ size:8/ seed:161           1154088 ns      1152944 ns          572
+test/ type:1/ cnt:1000/ size:8/ seed:161            213416 ns       213202 ns         3084
+test/ type:0/ cnt:1000/ size:16/ seed:14           1252532 ns      1251752 ns          447
+test/ type:1/ cnt:1000/ size:16/ seed:14            226278 ns       226073 ns         3011
+test/ type:0/ cnt:1000/ size:32/ seed:220          1545779 ns      1540905 ns          518
+test/ type:1/ cnt:1000/ size:32/ seed:220           337199 ns       336754 ns         2817
+test/ type:0/ cnt:1000/ size:64/ seed:206          2035407 ns      2033034 ns          529
+test/ type:1/ cnt:1000/ size:64/ seed:206           488147 ns       487397 ns         2302
+test/ type:0/ cnt:1000/ size:128/ seed:116         2818929 ns      2811406 ns          434
+test/ type:1/ cnt:1000/ size:128/ seed:116          529954 ns       527954 ns         1000
+test/ type:0/ cnt:1000/ size:256/ seed:90          3746284 ns      3743765 ns          349
+test/ type:1/ cnt:1000/ size:256/ seed:90           982061 ns       978623 ns         1000
+test/ type:0/ cnt:1000/ size:512/ seed:108         4859807 ns      4849689 ns          244
+test/ type:1/ cnt:1000/ size:512/ seed:108         2681300 ns      2674667 ns         1379
+test/ type:0/ cnt:1000/ size:1024/ seed:239        6154379 ns      6137907 ns          161
+test/ type:1/ cnt:1000/ size:1024/ seed:239        3981346 ns      3971551 ns          692
+test/ type:0/ cnt:10000/ size:8/ seed:245         25797434 ns     25167913 ns           23
+test/ type:1/ cnt:10000/ size:8/ seed:245          2821570 ns      2770864 ns          243
+test/ type:0/ cnt:10000/ size:16/ seed:224        19125668 ns     18190686 ns           35
+test/ type:1/ cnt:10000/ size:16/ seed:224         3282042 ns      3197862 ns          189
+test/ type:0/ cnt:10000/ size:32/ seed:254        15466041 ns     14976028 ns           36
+test/ type:1/ cnt:10000/ size:32/ seed:254         3814103 ns      3675243 ns          181
+test/ type:0/ cnt:10000/ size:64/ seed:266        14052101 ns     13581620 ns           50
+test/ type:1/ cnt:10000/ size:64/ seed:266         3218425 ns      3194876 ns          186
+test/ type:0/ cnt:10000/ size:128/ seed:173       14750657 ns     14371852 ns           54
+test/ type:1/ cnt:10000/ size:128/ seed:173        4536921 ns      4530733 ns          206
+test/ type:0/ cnt:10000/ size:256/ seed:123       16730935 ns     16697136 ns           59
+test/ type:1/ cnt:10000/ size:256/ seed:123        5389872 ns      5364160 ns          100
+test/ type:0/ cnt:10000/ size:512/ seed:74        22465290 ns     22423804 ns           51
+test/ type:1/ cnt:10000/ size:512/ seed:74        10209366 ns     10195990 ns          100
+test/ type:0/ cnt:10000/ size:1024/ seed:107      28552303 ns     28527868 ns           38
+test/ type:1/ cnt:10000/ size:1024/ seed:107      22777877 ns     22409000 ns          122
+test/ type:0/ cnt:100000/ size:8/ seed:21        307895634 ns    307594000 ns            2
+test/ type:1/ cnt:100000/ size:8/ seed:21         42158310 ns     41626450 ns           20
+test/ type:0/ cnt:100000/ size:16/ seed:66       376274929 ns    362247500 ns            2
+test/ type:1/ cnt:100000/ size:16/ seed:66        38829294 ns     38783733 ns           15
+test/ type:0/ cnt:100000/ size:32/ seed:297      264533374 ns    261310333 ns            3
+test/ type:1/ cnt:100000/ size:32/ seed:297       56102470 ns     55009182 ns           11
+test/ type:0/ cnt:100000/ size:64/ seed:93       215228125 ns    208728667 ns            3
+test/ type:1/ cnt:100000/ size:64/ seed:93        68389943 ns     67040250 ns           12
+test/ type:0/ cnt:100000/ size:128/ seed:259     146675652 ns    145483400 ns            5
+test/ type:1/ cnt:100000/ size:128/ seed:259      86470889 ns     85308083 ns           12
+test/ type:0/ cnt:100000/ size:256/ seed:260     151868417 ns    149973400 ns            5
+test/ type:1/ cnt:100000/ size:256/ seed:260     103456716 ns    101922667 ns            9
+test/ type:0/ cnt:100000/ size:512/ seed:211     169886526 ns    168370000 ns            5
+test/ type:1/ cnt:100000/ size:512/ seed:211     103342164 ns    102294857 ns            7
+test/ type:0/ cnt:100000/ size:1024/ seed:130    179930819 ns    179713250 ns            4
+test/ type:1/ cnt:100000/ size:1024/ seed:130    114310517 ns    114228571 ns            7
+test/ type:0/ cnt:1000000/ size:8/ seed:251     3560716659 ns   3520243000 ns            1
+test/ type:1/ cnt:1000000/ size:8/ seed:251      574274283 ns    573658000 ns            1
+test/ type:0/ cnt:1000000/ size:16/ seed:95     3445099072 ns   3440146000 ns            1
+test/ type:1/ cnt:1000000/ size:16/ seed:95      553779431 ns    552899000 ns            1
+test/ type:0/ cnt:1000000/ size:32/ seed:32     2896845661 ns   2892937000 ns            1
+test/ type:1/ cnt:1000000/ size:32/ seed:32      640527105 ns    637924000 ns            1
+test/ type:0/ cnt:1000000/ size:64/ seed:281    2206656666 ns   2203798000 ns            1
+test/ type:1/ cnt:1000000/ size:64/ seed:281     802464485 ns    801453000 ns            1
+test/ type:0/ cnt:1000000/ size:128/ seed:1     1696692969 ns   1694638000 ns            1
+test/ type:1/ cnt:1000000/ size:128/ seed:1      900247794 ns    898468000 ns            1
+test/ type:0/ cnt:1000000/ size:256/ seed:90    1565624963 ns   1563559000 ns            1
+test/ type:1/ cnt:1000000/ size:256/ seed:90    1093513161 ns   1092041000 ns            1
+test/ type:0/ cnt:1000000/ size:512/ seed:257   1620493642 ns   1617678000 ns            1
+test/ type:1/ cnt:1000000/ size:512/ seed:257   1330101594 ns   1328559000 ns            1
+test/ type:0/ cnt:1000000/ size:1024/ seed:38   2857134850 ns   2411024000 ns            1
+test/ type:1/ cnt:1000000/ size:1024/ seed:38   2020179746 ns   1931058000 ns            1
+test/ type:0/ cnt:100/ size:2048/ seed:251         6463549 ns      6293424 ns          712
+test/ type:1/ cnt:100/ size:2048/ seed:251          999811 ns       965108 ns         1000
+test/ type:0/ cnt:100/ size:4096/ seed:95          8075773 ns      7258979 ns          478
+test/ type:1/ cnt:100/ size:4096/ seed:95           894802 ns       882833 ns         1000
+test/ type:0/ cnt:100/ size:8192/ seed:32          8182240 ns      7351082 ns          294
+test/ type:1/ cnt:100/ size:8192/ seed:32           961393 ns       930732 ns         1000
+test/ type:0/ cnt:100/ size:16384/ seed:281        7366818 ns      7329490 ns          100
+test/ type:1/ cnt:100/ size:16384/ seed:281        3322865 ns      3296681 ns          273
+test/ type:0/ cnt:100/ size:32768/ seed:1         13793459 ns     13733230 ns          100
+test/ type:1/ cnt:100/ size:32768/ seed:1          2537281 ns      2533907 ns          311
+test/ type:0/ cnt:100/ size:65536/ seed:90        25603550 ns     25521720 ns          100
+test/ type:1/ cnt:100/ size:65536/ seed:90         8600826 ns      8463090 ns          100
+test/ type:0/ cnt:100/ size:131072/ seed:257      52118302 ns     51019624 ns          101
+test/ type:1/ cnt:100/ size:131072/ seed:257       6230853 ns      5924700 ns          100
+test/ type:0/ cnt:100/ size:262144/ seed:38       59112953 ns     57641143 ns           49
+test/ type:1/ cnt:100/ size:262144/ seed:38        4067793 ns      4020543 ns          129
+test/ type:0/ cnt:100/ size:524288/ seed:161      59918900 ns     57955962 ns           26
+test/ type:1/ cnt:100/ size:524288/ seed:161        703985 ns       692907 ns          762
+test/ type:0/ cnt:100/ size:1048576/ seed:14      52981449 ns     51398300 ns           10
+test/ type:1/ cnt:100/ size:1048576/ seed:14       2909962 ns      2892628 ns          199
+test/ type:0/ cnt:1000/ size:2048/ seed:220        9321719 ns      8914440 ns          100
+test/ type:1/ cnt:1000/ size:2048/ seed:220        6284167 ns      5978065 ns          216
+test/ type:0/ cnt:1000/ size:4096/ seed:206       14506653 ns     14293880 ns          100
+test/ type:1/ cnt:1000/ size:4096/ seed:206        7978383 ns      7763500 ns          100
+test/ type:0/ cnt:1000/ size:8192/ seed:116       31855557 ns     30740780 ns          109
+test/ type:1/ cnt:1000/ size:8192/ seed:116       18911165 ns     18482990 ns          100
+test/ type:0/ cnt:1000/ size:16384/ seed:90       41151875 ns     39783742 ns           66
+test/ type:1/ cnt:1000/ size:16384/ seed:90       49418790 ns     46756980 ns           99
+test/ type:0/ cnt:1000/ size:32768/ seed:108      46561979 ns     44756805 ns           41
+test/ type:1/ cnt:1000/ size:32768/ seed:108      46635374 ns     45748148 ns           54
+test/ type:0/ cnt:1000/ size:65536/ seed:239      57393439 ns     56032818 ns           22
+test/ type:1/ cnt:1000/ size:65536/ seed:239      56739673 ns     54935478 ns           23
+test/ type:0/ cnt:1000/ size:131072/ seed:245     63488133 ns     63232500 ns           10
+test/ type:1/ cnt:1000/ size:131072/ seed:245     66758028 ns     64238400 ns           10
+test/ type:0/ cnt:1000/ size:262144/ seed:224    133031881 ns    127977300 ns           10
+test/ type:1/ cnt:1000/ size:262144/ seed:224    124092955 ns    120330800 ns           10
+test/ type:0/ cnt:1000/ size:524288/ seed:254    217754858 ns    208238125 ns            8
+test/ type:1/ cnt:1000/ size:524288/ seed:254    197746848 ns    191665125 ns            8
+test/ type:0/ cnt:1000/ size:1048576/ seed:266   287692727 ns    274647000 ns            4
+test/ type:1/ cnt:1000/ size:1048576/ seed:266   280730917 ns    271261250 ns            4
+test/ type:0/ cnt:10000/ size:2048/ seed:173      38682337 ns     37686821 ns           28
+test/ type:1/ cnt:10000/ size:2048/ seed:173      33927865 ns     32850111 ns           63
+test/ type:0/ cnt:10000/ size:4096/ seed:123      52519494 ns     50005667 ns           18
+test/ type:1/ cnt:10000/ size:4096/ seed:123      54071396 ns     52721512 ns           41
+test/ type:0/ cnt:10000/ size:8192/ seed:74       64102161 ns     63194600 ns           10
+test/ type:1/ cnt:10000/ size:8192/ seed:74       85345929 ns     71748421 ns           19
+test/ type:0/ cnt:10000/ size:16384/ seed:107    143269436 ns    129942923 ns           13
+test/ type:1/ cnt:10000/ size:16384/ seed:107     79675635 ns     79189300 ns           10
+test/ type:0/ cnt:10000/ size:32768/ seed:21     152881998 ns    152249125 ns            8
+test/ type:1/ cnt:10000/ size:32768/ seed:21     177810463 ns    174544750 ns           12
+test/ type:0/ cnt:10000/ size:65536/ seed:66     259908785 ns    246886600 ns            5
+test/ type:1/ cnt:10000/ size:65536/ seed:66     252686862 ns    240254800 ns            5
+test/ type:0/ cnt:10000/ size:131072/ seed:297   373051772 ns    358718000 ns            3
+test/ type:1/ cnt:10000/ size:131072/ seed:297   357289821 ns    351623333 ns            3
+test/ type:0/ cnt:10000/ size:262144/ seed:93    520177959 ns    502973000 ns            1
+test/ type:1/ cnt:10000/ size:262144/ seed:93    647979278 ns    588336500 ns            2
+test/ type:0/ cnt:10000/ size:524288/ seed:259  1279509603 ns    991857000 ns            1
+test/ type:1/ cnt:10000/ size:524288/ seed:259   941954012 ns    924030000 ns            1
+test/ type:0/ cnt:10000/ size:1048576/ seed:260 3366340890 ns   2517211000 ns            1
+test/ type:1/ cnt:10000/ size:1048576/ seed:260 2735746496 ns   2295035000 ns            1
+test/ type:0/ cnt:100000/ size:2048/ seed:211    243128741 ns    234567000 ns            4
+test/ type:1/ cnt:100000/ size:2048/ seed:211    170144219 ns    155597400 ns            5
+test/ type:0/ cnt:100000/ size:4096/ seed:130    485769351 ns    356344000 ns            2
+test/ type:1/ cnt:100000/ size:4096/ seed:130    338411931 ns    262976667 ns            3
+test/ type:0/ cnt:100000/ size:8192/ seed:251    647741545 ns    500997000 ns            2
+test/ type:1/ cnt:100000/ size:8192/ seed:251    466126048 ns    376564000 ns            2
+test/ type:0/ cnt:100000/ size:16384/ seed:95   1112137360 ns    711874000 ns            1
+test/ type:1/ cnt:100000/ size:16384/ seed:95    844547002 ns    599052000 ns            1
+test/ type:0/ cnt:100000/ size:32768/ seed:32    978746445 ns    948042000 ns            1
+test/ type:1/ cnt:100000/ size:32768/ seed:32    819334242 ns    808700000 ns            1
+test/ type:0/ cnt:100000/ size:65536/ seed:281  1366459173 ns   1361235000 ns            1
+test/ type:1/ cnt:100000/ size:65536/ seed:281  1559125445 ns   1549800000 ns            1
+test/ type:0/ cnt:100000/ size:131072/ seed:1   3785889060 ns   3419608000 ns            1
+test/ type:1/ cnt:100000/ size:131072/ seed:1   3252996520 ns   3111357000 ns            1
+test/ type:0/ cnt:100000/ size:262144/ seed:90  8518682862 ns   7387604000 ns            1
+test/ type:1/ cnt:100000/ size:262144/ seed:90  6126807851 ns   5971434000 ns            1
+test/ type:0/ cnt:100000/ size:524288/ seed:257 1.6476e+10 ns   1.5019e+10 ns            1
+test/ type:1/ cnt:100000/ size:524288/ seed:257 1.4945e+10 ns   1.4175e+10 ns            1
+test/ type:0/ cnt:100000/ size:1048576/ seed:38 3.7344e+10 ns   3.3305e+10 ns            1
+test/ type:1/ cnt:100000/ size:1048576/ seed:38 3.4906e+10 ns   3.2254e+10 ns            1
+deinit
+Program ended with exit code: 0
